@@ -47,7 +47,7 @@ rm -Rf observability.json && cat > observability.json << EOF
     "AuthenticationConfiguration": {
       "ConnectionArn": "${CONNECTION_ARN}"
     },
-    "AutoDeploymentsEnabled": true,
+    "AutoDeploymentsEnabled": false,
     "CodeRepository": {
       "RepositoryUrl": "https://github.com/hariohmprasath/demo-app",
       "SourceCodeVersion": {
