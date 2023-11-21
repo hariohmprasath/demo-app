@@ -59,7 +59,7 @@ rm -Rf observability.json && cat > observability.json << EOF
         "CodeConfigurationValues": {
           "Runtime": "CORRETTO_11",
           "BuildCommand": "mvn clean install -DskipTests=true",
-          "StartCommand": "java -Dspring.profiles.active=mysql -jar target/spring-petclinic-3.1.0-SNAPSHOT.jar",
+          "StartCommand": "java -Dspring.profiles.active=mysql,xray -jar target/spring-petclinic-3.1.0-SNAPSHOT.jar",
           "Port": "8080",
           "RuntimeEnvironmentVariables": {
             "MYSQL_URL": "jdbc:mysql://reinvent-demo.cluster-c64elhmsvxbj.us-east-1.rds.amazonaws.com:3306/petclinic?createDatabaseIfNotExist=true"
