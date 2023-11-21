@@ -1,0 +1,43 @@
+{
+  "ServiceName": "3-networking",
+  "NetworkConfiguration": {
+    "EgressConfiguration": {
+      "EgressType": "VPC",
+      "VpcConnectorArn": "arn:aws:apprunner:us-east-1:775448517459:vpcconnector/reinvent-2023-vpc-connector/1/ac29778edbe946d58fbc6fd3f53a5105"
+    }
+  },
+  "SourceConfiguration": {
+    "AuthenticationConfiguration": {
+      "ConnectionArn": "arn:aws:apprunner:us-east-1:775448517459:connection/reinvent-2023-connection/aaad018c5973457dab422b266f8f0d28"
+    },
+    "AutoDeploymentsEnabled": true,
+    "CodeRepository": {
+      "RepositoryUrl": "https://github.com/hariohmprasath/demo-app",
+      "SourceCodeVersion": {
+        "Type": "BRANCH",
+        "Value": "main"
+      },
+      "CodeConfiguration": {
+        "ConfigurationSource": "API",
+        "CodeConfigurationValues": {
+          "Runtime": "CORRETTO_11",
+          "BuildCommand": "mvn clean install -DskipTests=true",
+          "StartCommand": "java -Dspring.profiles.active=mysql -jar target/spring-petclinic-3.1.0-SNAPSHOT.jar",
+          "Port": "8080",
+          "RuntimeEnvironmentVariables": {
+            "MYSQL_URL": "jdbc:mysql://reinvent-demo.cluster-c64elhmsvxbj.us-east-1.rds.amazonaws.com:3306/petclinic?createDatabaseIfNotExist=true"
+          },          
+          "RuntimeEnvironmentSecrets": {
+              "MYSQL_PASS":"arn:aws:secretsmanager:us-east-1:775448517459:secret:rds!cluster-41dd684c-d9d9-452b-b304-7ac0b0bc241c-fETtN0:password::",
+              "MYSQL_USER":"arn:aws:secretsmanager:us-east-1:775448517459:secret:rds!cluster-41dd684c-d9d9-452b-b304-7ac0b0bc241c-fETtN0:username::"
+          }          
+        }
+      }
+    }
+  },
+  "InstanceConfiguration": {
+    "Cpu": "2 vCPU",
+    "Memory": "4 GB",
+    "InstanceRoleArn": "arn:aws:iam::775448517459:role/AppRunnerSecretsRole"
+  }
+}

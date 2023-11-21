@@ -16,7 +16,6 @@
 
     <!-- Generic properties -->
     <java.version>11</java.version>
-    <xray>2.4.0</xray>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <!-- Important for reproducible builds. Update using e.g. ./mvnw versions:set -DnewVersion=... -->
@@ -121,14 +120,9 @@
     </dependency>
 
     <dependency>
-      <groupId>com.amazonaws</groupId>
-      <artifactId>aws-xray-recorder-sdk-sql-mysql</artifactId>
-      <version>${xray}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.amazonaws</groupId>
-      <artifactId>aws-xray-recorder-sdk-spring</artifactId>
-      <version>${xray}</version>
+      <groupId>software.amazon.opentelemetry</groupId>
+      <artifactId>aws-opentelemetry-agent</artifactId>
+      <version>1.29.0</version>
     </dependency>
 
     <dependency>

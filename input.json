@@ -1,0 +1,29 @@
+{
+  "ServiceName": "1-move-to-cloud",
+  "SourceConfiguration": {
+    "AuthenticationConfiguration": {
+      "ConnectionArn": "arn:aws:apprunner:us-east-1:775448517459:connection/reinvent-2023-connection/aaad018c5973457dab422b266f8f0d28"
+    },
+    "AutoDeploymentsEnabled": true,
+    "CodeRepository": {
+      "RepositoryUrl": "https://github.com/hariohmprasath/demo-app",
+      "SourceCodeVersion": {
+        "Type": "BRANCH",
+        "Value": "main"
+      },
+      "CodeConfiguration": {
+        "ConfigurationSource": "API",
+        "CodeConfigurationValues": {
+          "Runtime": "CORRETTO_11",
+          "BuildCommand": "mvn clean install -DskipTests=true",
+          "StartCommand": "java -jar target/spring-petclinic-3.1.0-SNAPSHOT.jar",
+          "Port": "8080"
+        }
+      }
+    }
+  },
+  "InstanceConfiguration": {
+    "Cpu": "2 vCPU",
+    "Memory": "4 GB"
+  }
+}

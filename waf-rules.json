@@ -1,0 +1,31 @@
+[
+   {
+      "Name":"SQLInjection",
+      "Priority":0,
+      "Statement":{
+         "SqliMatchStatement":{
+            "FieldToMatch":{
+               "AllQueryArguments":{
+                  
+               }
+            },
+            "TextTransformations":[
+               {
+                  "Priority":0,
+                  "Type":"NONE"
+               }
+            ]
+         }
+      },
+      "Action":{
+         "Block":{
+            
+         }
+      },
+      "VisibilityConfig":{
+         "CloudWatchMetricsEnabled":true,
+         "MetricName":"SQLInjection",
+         "SampledRequestsEnabled":true
+      }
+   }
+]
