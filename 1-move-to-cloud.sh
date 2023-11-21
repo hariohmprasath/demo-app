@@ -1,3 +1,4 @@
+export CONNECTION_NAME=reinvent-2023-connection
 
 # 1-Create a new connection
 CONNECTION_ARN=$(aws apprunner create-connection \

@@ -15,9 +15,6 @@
  */
 package org.springframework.samples.petclinic.owner;
 
-import java.util.Map;
-
-import com.amazonaws.xray.spring.aop.XRayEnabled;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
@@ -28,6 +25,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.util.Map;
 
 /**
  * @author Juergen Hoeller
@@ -37,7 +35,6 @@ import javax.validation.Valid;
  * @author Dave Syer
  */
 @Controller
-@XRayEnabled
 class VisitController {
 
 	private final OwnerRepository owners;

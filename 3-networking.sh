@@ -5,7 +5,7 @@ export AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query 'Account' --output t
 export CONNECTION_ARN=$(aws apprunner list-connections --connection-name ${CONNECTION_NAME} | jq -r '.ConnectionSummaryList[0].ConnectionArn')
 echo "Connection ARN: ${CONNECTION_ARN}"
 
-# 0-Create VPC connector
+# 1-Create VPC connector
 export VPC_CONNECTOR_ARN=$(aws apprunner create-vpc-connector \
   --vpc-connector-name=$VPC_CONNECTOR_NAME \
   --subnets="subnet-8bd57bd4" \
@@ -14,7 +14,7 @@ export VPC_CONNECTOR_ARN=$(aws apprunner create-vpc-connector \
   --query 'VpcConnector.VpcConnectorArn')
 echo "VPC Connector ARN: ${VPC_CONNECTOR_ARN}"
 
-# 1-Create instance role
+# 2-Create instance role
 export TP_FILE=$(mktemp)
 export ROLE_NAME=AppRunnerSecretsRole
 cat <<EOF | tee $TP_FILE
@@ -53,7 +53,7 @@ aws iam put-role-policy \
     --policy-document file://permission.json
 rm $TP_FILE
 
-# 2-Create service
+# 3-Create service
 rm -Rf network.json && cat > network.json << EOF
 {
   "ServiceName": "3-networking",
@@ -100,7 +100,7 @@ rm -Rf network.json && cat > network.json << EOF
 }
 EOF
 
-# 3-Print outputs
+# 4-Print outputs
 SERVICE_ARN=$(aws apprunner create-service --cli-input-json file://network.json \
  --output text \
  --query 'Service.ServiceArn')

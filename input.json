@@ -2,7 +2,7 @@
   "ServiceName": "1-move-to-cloud",
   "SourceConfiguration": {
     "AuthenticationConfiguration": {
-      "ConnectionArn": "arn:aws:apprunner:us-east-1:775448517459:connection/reinvent-2023-connection/aaad018c5973457dab422b266f8f0d28"
+      "ConnectionArn": "arn:aws:apprunner:us-east-1:775448517459:connection/reinvent-2023-connection/7beed1087b3d4316974f42ae6217e991"
     },
     "AutoDeploymentsEnabled": true,
     "CodeRepository": {

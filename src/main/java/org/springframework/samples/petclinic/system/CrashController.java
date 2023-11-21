@@ -15,7 +15,6 @@
  */
 package org.springframework.samples.petclinic.system;
 
-import com.amazonaws.xray.spring.aop.XRayEnabled;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -27,7 +26,6 @@ import org.springframework.web.bind.annotation.GetMapping;
  * Also see how a view that resolves to "error" has been added ("error.html").
  */
 @Controller
-@XRayEnabled
 class CrashController {
 
 	@GetMapping("/oups")

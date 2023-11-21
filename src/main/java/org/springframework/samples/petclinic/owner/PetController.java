@@ -15,10 +15,6 @@
  */
 package org.springframework.samples.petclinic.owner;
 
-import java.time.LocalDate;
-import java.util.Collection;
-
-import com.amazonaws.xray.spring.aop.XRayEnabled;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
@@ -32,6 +28,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
+import java.util.Collection;
 
 /**
  * @author Juergen Hoeller
@@ -40,7 +38,6 @@ import javax.validation.Valid;
  */
 @Controller
 @RequestMapping("/owners/{ownerId}")
-@XRayEnabled
 class PetController {
 
 	private static final String VIEWS_PETS_CREATE_OR_UPDATE_FORM = "pets/createOrUpdatePetForm";

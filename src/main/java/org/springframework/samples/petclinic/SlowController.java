@@ -1,6 +1,5 @@
 package org.springframework.samples.petclinic;
 
-import com.amazonaws.xray.spring.aop.XRayEnabled;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 

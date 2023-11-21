@@ -16,16 +16,32 @@
 
 package org.springframework.samples.petclinic.system;
 
-import com.amazonaws.xray.spring.aop.XRayEnabled;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.sql.DataSource;
+
 @Controller
-@XRayEnabled
 class WelcomeController {
 
+	private final DataSource dataSource;
+
+	private String connectionUrl;
+
+	public WelcomeController(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
+
 	@GetMapping("/")
-	public String welcome() {
+	public String welcome(Model model){
+		try {
+			connectionUrl = dataSource.getConnection().getMetaData().getURL();
+			model.addAttribute("connectionUrl", connectionUrl);
+		}catch (Exception e) {
+			System.out.println("Exception in WelcomeController");
+		}
+		System.out.println("In Welcome controller & connected to: " + connectionUrl);
 		return "welcome";
 	}
 

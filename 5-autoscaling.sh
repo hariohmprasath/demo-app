@@ -8,7 +8,7 @@ export CONNECTION_ARN=$(aws apprunner list-connections --connection-name ${CONNE
 export VPC_CONNECTOR_ARN=$(aws apprunner list-vpc-connectors | jq -r '.VpcConnectors[0].VpcConnectorArn')
 
 # 1-Create auto scaling configuration
-rm -Rf autoscaling-config.json cat > autoscaling-config.json << EOF
+rm -Rf autoscaling-config.json && cat > autoscaling-config.json << EOF
 {
     "AutoScalingConfigurationName": "${AUTO_SCALING_CONFIG_NAME}",
     "MaxConcurrency": 30,

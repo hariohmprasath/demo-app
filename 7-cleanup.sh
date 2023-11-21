@@ -3,9 +3,11 @@ export CONNECTION_NAME=reinvent-2023-connection
 export AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query 'Account' --output text)
 export ROLE_NAME=AppRunnerSecretsRole
 export WEB_ACL_NAME=reinvent-2023-web-acl
+export AUTO_SCALING_CONFIG_NAME=high-availability
+export OBSERVABILITY_CONFIGURATION_NAME=otel-integration
 
 aws wafv2 disassociate-web-acl \
-  --resource-arn arn:aws:apprunner:us-east-1:${AWS_ACCOUNT_ID}:service/4-security 
+  --resource-arn arn:aws:apprunner:us-east-1:${AWS_ACCOUNT_ID}:service/4-security
 
 ## Delete services
 for i in $(aws apprunner list-services | jq -r '.ServiceSummaryList[].ServiceArn'); do    
@@ -26,7 +28,13 @@ for i in $(aws apprunner list-vpc-connectors | jq -r '.VpcConnectors[].VpcConnec
     aws apprunner delete-vpc-connector --vpc-connector-arn $i
 done
 
-## Delete Code connection
+# Delete auto-scaling configuration
+aws apprunner delete-auto-scaling-configuration --auto-scaling-configuration-arn $(aws apprunner list-auto-scaling-configurations --auto-scaling-configuration-name ${AUTO_SCALING_CONFIG_NAME} | jq -r '.AutoScalingConfigurationSummaryList[0].AutoScalingConfigurationArn')
+
+# Delete observability configuration
+aws apprunner delete-observability-configuration --observability-configuration-arn $(aws apprunner list-observability-configurations --observability-configuration-name ${OBSERVABILITY_CONFIGURATION_NAME} | jq -r '.ObservabilityConfigurationSummaryList[0].ObservabilityConfigurationArn')
+
+# Delete Code connection
 aws apprunner delete-connection --connection-arn $(aws apprunner list-connections --connection-name ${CONNECTION_NAME} | jq -r '.ConnectionSummaryList[0].ConnectionArn')
 
 ## Delete resources

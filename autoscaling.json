@@ -1,11 +1,12 @@
 {
-  "ServiceName": "4-security",
+  "ServiceName": "5-autoscaling",
   "NetworkConfiguration": {
     "EgressConfiguration": {
       "EgressType": "VPC",
       "VpcConnectorArn": "arn:aws:apprunner:us-east-1:775448517459:vpcconnector/reinvent-2023-vpc-connector/1/63b70b00a2f044d491b16bf942b9f604"
     }
   },
+  "AutoScalingConfigurationArn": "arn:aws:apprunner:us-east-1:775448517459:autoscalingconfiguration/high-availability/1/8a7a0e8a37254d04ad4e968d4e8bf52d",
   "SourceConfiguration": {
     "AuthenticationConfiguration": {
       "ConnectionArn": "arn:aws:apprunner:us-east-1:775448517459:connection/reinvent-2023-connection/7beed1087b3d4316974f42ae6217e991"

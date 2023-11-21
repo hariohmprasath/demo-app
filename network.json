@@ -3,14 +3,14 @@
   "NetworkConfiguration": {
     "EgressConfiguration": {
       "EgressType": "VPC",
-      "VpcConnectorArn": "arn:aws:apprunner:us-east-1:775448517459:vpcconnector/reinvent-2023-vpc-connector/1/ac29778edbe946d58fbc6fd3f53a5105"
+      "VpcConnectorArn": "arn:aws:apprunner:us-east-1:775448517459:vpcconnector/reinvent-2023-vpc-connector/1/63b70b00a2f044d491b16bf942b9f604"
     }
   },
   "SourceConfiguration": {
     "AuthenticationConfiguration": {
-      "ConnectionArn": "arn:aws:apprunner:us-east-1:775448517459:connection/reinvent-2023-connection/aaad018c5973457dab422b266f8f0d28"
+      "ConnectionArn": "arn:aws:apprunner:us-east-1:775448517459:connection/reinvent-2023-connection/7beed1087b3d4316974f42ae6217e991"
     },
-    "AutoDeploymentsEnabled": true,
+    "AutoDeploymentsEnabled": false,
     "CodeRepository": {
       "RepositoryUrl": "https://github.com/hariohmprasath/demo-app",
       "SourceCodeVersion": {

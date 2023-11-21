@@ -3,18 +3,18 @@
   "NetworkConfiguration": {
     "EgressConfiguration": {
       "EgressType": "VPC",
-      "VpcConnectorArn": "arn:aws:apprunner:us-east-1:775448517459:vpcconnector/reinvent-2023-vpc-connector/1/ac29778edbe946d58fbc6fd3f53a5105"
+      "VpcConnectorArn": "arn:aws:apprunner:us-east-1:775448517459:vpcconnector/reinvent-2023-vpc-connector/1/63b70b00a2f044d491b16bf942b9f604"
     }
   },
   "ObservabilityConfiguration": {
     "ObservabilityEnabled": true,
-    "ObservabilityConfigurationArn": "arn:aws:apprunner:us-east-1:775448517459:observabilityconfiguration/otel-integration/1/168a727daabb49cea2f1f85f02d97294"
+    "ObservabilityConfigurationArn": "arn:aws:apprunner:us-east-1:775448517459:observabilityconfiguration/otel-integration/1/8493a3c6664049b097466d726fd0a2e4"
   },
   "SourceConfiguration": {
     "AuthenticationConfiguration": {
-      "ConnectionArn": "arn:aws:apprunner:us-east-1:775448517459:connection/reinvent-2023-connection/aaad018c5973457dab422b266f8f0d28"
+      "ConnectionArn": "arn:aws:apprunner:us-east-1:775448517459:connection/reinvent-2023-connection/7beed1087b3d4316974f42ae6217e991"
     },
-    "AutoDeploymentsEnabled": true,
+    "AutoDeploymentsEnabled": false,
     "CodeRepository": {
       "RepositoryUrl": "https://github.com/hariohmprasath/demo-app",
       "SourceCodeVersion": {
@@ -26,7 +26,7 @@
         "CodeConfigurationValues": {
           "Runtime": "CORRETTO_11",
           "BuildCommand": "mvn clean install -DskipTests=true",
-          "StartCommand": "java -Dspring.profiles.active=mysql -jar target/spring-petclinic-3.1.0-SNAPSHOT.jar",
+          "StartCommand": "java -Dspring.profiles.active=mysql,xray -jar target/spring-petclinic-3.1.0-SNAPSHOT.jar",
           "Port": "8080",
           "RuntimeEnvironmentVariables": {
             "MYSQL_URL": "jdbc:mysql://reinvent-demo.cluster-c64elhmsvxbj.us-east-1.rds.amazonaws.com:3306/petclinic?createDatabaseIfNotExist=true"

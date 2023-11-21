@@ -107,6 +107,6 @@ echo "Service ARN: ${SERVICE_ARN}"
 SERVICE_URL=$(aws apprunner describe-service --service-arn ${SERVICE_ARN} | jq -r '.Service.ServiceUrl')
 echo "Service URL: ${SERVICE_URL}"
 
-# 4- Associate web ACL
+# 4- Associate web ACL, Explain the process before next step
 aws wafv2 associate-web-acl --resource-arn ${SERVICE_ARN} --web-acl-arn ${WEB_ACL_ARN}
 

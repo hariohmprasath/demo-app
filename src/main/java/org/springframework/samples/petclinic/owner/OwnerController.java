@@ -18,7 +18,6 @@ package org.springframework.samples.petclinic.owner;
 import java.util.List;
 import java.util.Map;
 
-import com.amazonaws.xray.spring.aop.XRayEnabled;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -43,7 +42,6 @@ import javax.validation.Valid;
  * @author Michael Isvy
  */
 @Controller
-@XRayEnabled
 class OwnerController {
 
 	private static final String VIEWS_OWNER_CREATE_OR_UPDATE_FORM = "owners/createOrUpdateOwnerForm";

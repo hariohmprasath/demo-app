@@ -15,9 +15,6 @@
  */
 package org.springframework.samples.petclinic.vet;
 
-import java.util.List;
-
-import com.amazonaws.xray.spring.aop.XRayEnabled;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -27,6 +24,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 /**
  * @author Juergen Hoeller
  * @author Mark Fisher
@@ -34,7 +33,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @author Arjen Poutsma
  */
 @Controller
-@XRayEnabled
 class VetController {
 
 	private final VetRepository vetRepository;
