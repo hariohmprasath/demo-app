@@ -26,7 +26,7 @@ echo "Observability Configuration ARN: ${OBSERVABILITY_CONFIGURATION_ARN}"
 
 # 2-Attach Policy
 aws iam attach-role-policy --role-name $ROLE_NAME \
-  --policy-arn arn:aws:iam::aws:policy/service-role/AddingAWSXRayDaemonWriteAccess
+  --policy-arn arn:aws:iam::aws:policy/AWSXRayDaemonWriteAccess
 
 
 # 3-Create service
