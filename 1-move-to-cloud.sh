@@ -1,7 +1,3 @@
-export CONNECTION_NAME=reinvent-2023-connection
-
-# 0-Cleanup
-aws apprunner delete-connection --connection-arn $(aws apprunner list-connections --connection-name ${CONNECTION_NAME} | jq -r '.ConnectionSummaryList[0].ConnectionArn')
 
 # 1-Create a new connection
 CONNECTION_ARN=$(aws apprunner create-connection \
