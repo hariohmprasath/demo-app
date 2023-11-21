@@ -1,15 +1,15 @@
 {
-  "ServiceName": "5-autoscaling",
+  "ServiceName": "5-autoscaling-precreated",
   "NetworkConfiguration": {
     "EgressConfiguration": {
       "EgressType": "VPC",
-      "VpcConnectorArn": "arn:aws:apprunner:us-east-1:775448517459:vpcconnector/reinvent-2023-vpc-connector/1/63b70b00a2f044d491b16bf942b9f604"
+      "VpcConnectorArn": "arn:aws:apprunner:us-east-1:775448517459:vpcconnector/reinvent-2023-vpc-connector-precreated/1/e45f7a8073ba43f6991045b50f9a5a2d"
     }
   },
-  "AutoScalingConfigurationArn": "arn:aws:apprunner:us-east-1:775448517459:autoscalingconfiguration/high-availability/1/8a7a0e8a37254d04ad4e968d4e8bf52d",
+  "AutoScalingConfigurationArn": "arn:aws:apprunner:us-east-1:775448517459:autoscalingconfiguration/high-availability-precreated/1/28aebc15c23c4d1ba6b051ad787e53a1",
   "SourceConfiguration": {
     "AuthenticationConfiguration": {
-      "ConnectionArn": "arn:aws:apprunner:us-east-1:775448517459:connection/reinvent-2023-connection/7beed1087b3d4316974f42ae6217e991"
+      "ConnectionArn": "arn:aws:apprunner:us-east-1:775448517459:connection/reinvent-2023-precreated/1e53ce36bfda4a719d46d9cc7d0c8f5d"
     },
     "AutoDeploymentsEnabled": false,
     "CodeRepository": {
@@ -39,6 +39,6 @@
   "InstanceConfiguration": {
     "Cpu": "2 vCPU",
     "Memory": "4 GB",
-    "InstanceRoleArn": "arn:aws:iam::775448517459:role/AppRunnerSecretsRole"
+    "InstanceRoleArn": "arn:aws:iam::775448517459:role/AppRunnerSecretsRole-precreated"
   }
 }

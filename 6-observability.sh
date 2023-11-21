@@ -3,21 +3,14 @@ export CONNECTION_NAME=reinvent-2023-connection
 export AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query 'Account' --output text)
 export AUTO_SCALING_CONFIG_NAME=high-availability
 export ROLE_NAME=AppRunnerSecretsRole
+export OBSERVABILITY_NAME=otel-integration
 
 export CONNECTION_ARN=$(aws apprunner list-connections --connection-name ${CONNECTION_NAME} | jq -r '.ConnectionSummaryList[0].ConnectionArn')
 export VPC_CONNECTOR_ARN=$(aws apprunner list-vpc-connectors | jq -r '.VpcConnectors[0].VpcConnectorArn')
 
 # 1-Create observability configuration
-rm -Rf observability-config.json && cat > autoscaling-config.json << EOF
-{
-    "AutoScalingConfigurationName": "${AUTO_SCALING_CONFIG_NAME}",
-    "MaxConcurrency": 30,
-    "MinSize": 1,
-    "MaxSize": 10
-}
-EOF
 OBSERVABILITY_CONFIGURATION_ARN=$(aws apprunner create-observability-configuration \
-    --observability-configuration-name otel-integration \
+    --observability-configuration-name ${OBSERVABILITY_NAME} \
     --trace-configuration "Vendor=AWSXRAY" \
     --output text \
     --query 'ObservabilityConfiguration.ObservabilityConfigurationArn')
