@@ -1,5 +1,5 @@
 {
-    "AutoScalingConfigurationName": "high-availability-precreated",
+    "AutoScalingConfigurationName": "high-availability",
     "MaxConcurrency": 30,
     "MinSize": 1,
     "MaxSize": 10

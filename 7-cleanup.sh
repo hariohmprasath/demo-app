@@ -6,9 +6,6 @@ export WEB_ACL_NAME=reinvent-2023-web-acl
 export AUTO_SCALING_CONFIG_NAME=high-availability
 export OBSERVABILITY_CONFIGURATION_NAME=otel-integration
 
-aws wafv2 disassociate-web-acl \
-  --resource-arn arn:aws:apprunner:us-east-1:${AWS_ACCOUNT_ID}:service/4-security
-
 ## Delete services
 for i in $(aws apprunner list-services | jq -r '.ServiceSummaryList[].ServiceArn'); do    
     #if service name doesn't end with precreated, then dont delete it

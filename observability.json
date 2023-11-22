@@ -1,5 +1,5 @@
 {
-  "ServiceName": "6-observability-precreated",
+  "ServiceName": "6-observability",
   "NetworkConfiguration": {
     "EgressConfiguration": {
       "EgressType": "VPC",
@@ -8,11 +8,11 @@
   },
   "ObservabilityConfiguration": {
     "ObservabilityEnabled": true,
-    "ObservabilityConfigurationArn": "arn:aws:apprunner:us-east-1:775448517459:observabilityconfiguration/otel-integration-precreated/1/73e42150e5cb4e15b0c89d57695a6785"
+    "ObservabilityConfigurationArn": "arn:aws:apprunner:us-east-1:775448517459:observabilityconfiguration/otel-integration/1/5feae1811ca04bc9b91dae923a66bcdb"
   },
   "SourceConfiguration": {
     "AuthenticationConfiguration": {
-      "ConnectionArn": "arn:aws:apprunner:us-east-1:775448517459:connection/reinvent-2023-precreated/1e53ce36bfda4a719d46d9cc7d0c8f5d"
+      "ConnectionArn": "arn:aws:apprunner:us-east-1:775448517459:connection/reinvent-2023-connection/de9a4a3470184737a412f8ae0563cb25"
     },
     "AutoDeploymentsEnabled": false,
     "CodeRepository": {
@@ -42,6 +42,6 @@
   "InstanceConfiguration": {
     "Cpu": "2 vCPU",
     "Memory": "4 GB",
-    "InstanceRoleArn": "arn:aws:iam::775448517459:role/AppRunnerSecretsRole-precreated"
+    "InstanceRoleArn": "arn:aws:iam::775448517459:role/AppRunnerSecretsRole"
   }
 }

@@ -9,7 +9,7 @@ echo "Connection ARN: ${CONNECTION_ARN}"
 export VPC_CONNECTOR_ARN=$(aws apprunner create-vpc-connector \
   --vpc-connector-name=$VPC_CONNECTOR_NAME \
   --subnets="subnet-8bd57bd4" \
-  --security-groups=sg-83951bbf \
+  --security-groups="sg-088f5b57cff0cb304" \
   --output text \
   --query 'VpcConnector.VpcConnectorArn')
 echo "VPC Connector ARN: ${VPC_CONNECTOR_ARN}"
@@ -52,6 +52,9 @@ aws iam put-role-policy \
     --policy-name AppRunnerSecretsPolicy \
     --policy-document file://permission.json
 rm $TP_FILE
+echo "Role Created: ${ROLE_NAME}"
+
+sleep 5
 
 # 3-Create service
 rm -Rf network.json && cat > network.json << EOF

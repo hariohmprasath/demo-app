@@ -81,5 +81,5 @@ echo "Service ARN: ${SERVICE_ARN}"
 SERVICE_URL=$(aws apprunner describe-service --service-arn ${SERVICE_ARN} | jq -r '.Service.ServiceUrl')
 
 # 4-Test the service
-export AUTO_SCALING_URL=""
-hey -z120s -c 10 ${AUTO_SCALING_URL}
+#export AUTO_SCALING_URL=""
+#hey -z120s -c 10 ${AUTO_SCALING_URL}
