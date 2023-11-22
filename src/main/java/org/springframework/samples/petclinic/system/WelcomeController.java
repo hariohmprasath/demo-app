@@ -39,7 +39,8 @@ class WelcomeController {
 			connectionUrl = dataSource.getConnection().getMetaData().getURL();
 			model.addAttribute("connectionUrl", connectionUrl);
 		}catch (Exception e) {
-			System.out.println("Exception in WelcomeController");
+			System.out.println("Exception in WelcomeController :"+e.getMessage());
+			e.printStackTrace();
 		}
 		System.out.println("In Welcome controller & connected to: " + connectionUrl);
 		return "welcome";
