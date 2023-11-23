@@ -120,10 +120,25 @@
       <version>2.5.2</version>
     </dependency>
 
+    <!-- Open telemetry dependencies -->
     <dependency>
       <groupId>io.opentelemetry</groupId>
       <artifactId>opentelemetry-api</artifactId>
       <version>1.29.0</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>io.opentelemetry</groupId>
+      <artifactId>opentelemetry-exporter-otlp</artifactId>
+      <version>1.29.0</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.aws.opentelemetry.agent</groupId>
+      <artifactId>aws-opentelemetry-agent</artifactId>
+      <version>1.0</version>
+      <scope>system</scope>
+      <systemPath>${basedir}/aws-opentelemetry-agent.jar</systemPath>
     </dependency>
 
     <dependency>
