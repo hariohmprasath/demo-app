@@ -126,6 +126,12 @@
       <artifactId>opentelemetry-api</artifactId>
       <version>1.29.0</version>
     </dependency>
+
+    <dependency>
+      <groupId>software.amazon.opentelemetry</groupId>
+      <artifactId>aws-opentelemetry-agent</artifactId>
+      <version>1.29.0</version>
+    </dependency>
     
     <dependency>
       <groupId>io.opentelemetry</groupId>
